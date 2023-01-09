@@ -1,24 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { HashRouter, Link, Routes, Route } from "react-router-dom";
+import List from "./page/List";
+import Write from "./page/Write";
 
 function App() {
+  function prams(e) {
+    console.log(e);
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <HashRouter>
+      <Routes>
+        <Route path="/" element={<List />} />
+        <Route path="/write" element={<Write fn={prams} />} />
+      </Routes>
+    </HashRouter>
   );
 }
 
